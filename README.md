@@ -1,3 +1,5 @@
+index.html has the MATERIAL-UI CSS REFERENCE LINK. Find the App.jsx file and start adding paths/links from the homepage. We meet at 9 pm and decide the exact flow. Rest, I am starting with the Sign-in page. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
