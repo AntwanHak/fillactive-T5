@@ -1,4 +1,4 @@
-Sign In and Sign Up are merged now on the home page. 
+Sign In and Sign Up are merged now on the home page. FORM VALIDATION using Formik and Yuk DONE. :)
 Next Steps: Routing Sign In and Sign Up onto chatting page and start building real-time chatting(like Microsoft Teams). 
 
 # Getting Started with Create React App
