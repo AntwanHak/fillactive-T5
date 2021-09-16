@@ -1,14 +1,19 @@
 import React from 'react';
-import {Typography, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container} from '@material-ui/core';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import {CssBaseline} from '@material-ui/core';
+//import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import Login from './login';
+import Event from './event';
 
 const App = () => {
     return (
        <>
         <CssBaseline>
         <Login></Login>
+        
         </CssBaseline>
+        <Event></Event>
+        
+
        </>
     );
 }
