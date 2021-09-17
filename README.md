@@ -1,5 +1,4 @@
-Sign In and Sign Up are merged now on the home page. FORM VALIDATION using Formik and Yuk DONE. :)
-Next Steps: Routing Sign In and Sign Up onto chatting page and start building real-time chatting(like Microsoft Teams). 
+Sign in done and integrated with chat home page. No Sign up feature added yet. The chat app is a very heavy module. takes time to load. 
 
 # Getting Started with Create React App
 
