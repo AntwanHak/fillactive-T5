@@ -1,18 +1,11 @@
 import React, { Component, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import './Dashboard.css';
-import { BorderAllRounded } from '@material-ui/icons';
-import FullCalendar from '@fullcalendar/react' // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
-
-//import Calendar from 'react-calendar';
-//import 'react-calendar/dist/Calendar.css';
-//import CalendarView from '../components/calendar';
-//import Calendar from 'react-material-ui-calendar';
-
-
-
-
+//import { BorderAllRounded } from '@material-ui/icons';   is this needed? 
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { Avatar } from '@mui/material';
+import profileImage from './1.jpg'
 
 const AnyReactComponent = ({ text }) => <div className='marker'>{text}</div>;
 
@@ -75,14 +68,35 @@ class DashboardContainer extends Component {
             <>
 
                 <div className='page-container'>
+
+
+
+                    <div className='user-info-container'>
+                        <div className='avatar-container'>
+                            <Avatar alt="Julia Yang"
+                                src={profileImage}
+                                sx={{ width: 150, height: 150 }}
+                            />
+
+                            
+                        </div>
+                        <a>Julia Yang</a>
+
+
+
+                    </div>
+                    <h2>Upcoming Events</h2>
                     <div className='calendar-container'>
+
                         <FullCalendar
                             plugins={[dayGridPlugin]}
                             initialView="dayGridMonth"
                             themeSystem="standard"
                             events={[
-                                { title: 'event 1', date: '2021-08-29' },
-                                { title: 'event 2', date: '2019-04-02' }
+                                { title: '5K run', date: '2021-08-29' },
+                                { title: 'Morning yoga', date: '2021-09-23' },
+                                { title: 'evening walk', start: '2021-09-10', end: '2021-09-12' },
+                                { title: '5K weekend group run', date: '2021-09-19' }
                             ]}
                         />
 
@@ -100,7 +114,9 @@ class DashboardContainer extends Component {
                             <AnyReactComponent
                                 lat={45.5053}
                                 lng={-73.5525}
-                                text="My Marker" />
+                                text="My Marker"
+                            />
+
 
 
                         </GoogleMapReact>
