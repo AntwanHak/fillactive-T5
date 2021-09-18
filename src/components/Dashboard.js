@@ -6,6 +6,8 @@ import CalendarView from '../components/calendar';
 
 const AnyReactComponent = ({ text }) => <div className='marker'>{text}</div>;
 
+//git test 
+
 let Event = {
     "nameOfEvent" : "Bob's cycling",
     "eventLat" : 45.5053,
