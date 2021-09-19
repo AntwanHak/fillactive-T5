@@ -2,34 +2,58 @@ import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { DragDropContext } from "react-beautiful-dnd";
-import { Button, Typography } from "@material-ui/core";
+import { Button, Typography,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@material-ui/core";
 import Column from "./Column";
 import AddIcon from "@material-ui/icons/Add";
 import './App.css';
-  /*
-    TODO: It's really important how you structure your data!!!
-      each column has to have a unique id, each item has to have a unique id and ideally consecutive else funky things happen
-      each droppable has to have a unique id, each draggable also - cannot stress this enough because that is the only way
-      the framework knows how what went from which list
-    */
-   
+
+
+   export function getFormattedDate(sDate) {
+    var separator = '-';
+    let newDate = new Date(sDate);
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+
+    return `${year}${separator}${month < 10 ? `0${month}` : `${month}`}${separator}${date < 10 ? `0${date}` : `${date}`}`
+}
+
+export function setFormattedDate(sDate) {
+    var separator = '/';
+    let newDate;
+    console.log(sDate);
+    if(sDate==null||sDate==""){
+        newDate=new Date();
+    }
+    else{
+        const dates = sDate.split('-');
+        newDate = new Date(dates[1]+separator+dates[2]+separator+dates[0]);
+    }
+
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+
+    return `${month < 10 ? `0${month}` : `${month}`}${separator}${date}${separator}${year}`
+}
 
 
 export default function Objective() {
+    document.body.style = 'background: #9ca4dc;';
 
     const initialColumns = {
         todo: {
           id: "todo",
           list: [
-            { id: "1", text: "text1", name:"Running", description:"Run for 12 mins", startDate:"09/19/2021", endDate:"09/23/2021" },
-            { id: "2", text: "text2",name:"Yoga", description:"yoga blah", startDate:"09/16/2020", endDate:"09/31/2021" },
+            { id: "1", name:"Running", description:"Run for 12 mins", startDate:"09/19/2021", endDate:"09/23/2021", additionalNotes:""},
+            { id: "2",name:"Yoga", description:"yoga blah", startDate:"09/16/2020", endDate:"09/31/2021", additionalNotes:"" },
           ]
         },
         doing: {
           id: "doing",
           list: [
-            { id: "3", text: "text4", name:"Swimming", description:"Hold breath for 1 min", startDate:"09/14/2021", endDate:"09/15/2021" },
-            { id: "5", text: "text5", name:"Blah", description:"Blah Blah Blah", startDate:"09/16/2021", endDate:"12/22/2021" }
+            { id: "3",name:"Swimming", description:"Hold breath for 1 min", startDate:"09/14/2021", endDate:"09/15/2021", additionalNotes:"" },
+            { id: "4",name:"Blah", description:"Blah Blah Blah", startDate:"09/16/2021", endDate:"12/22/2021", additionalNotes:"" }
           ]
         },
         done: {
@@ -38,7 +62,11 @@ export default function Objective() {
         }
       };
       const [columns, setColumns] = useState(initialColumns);
-    
+      const [goalIndex,setGoalIndex]= useState(5);
+      const [clickedGoalIndex, setClickedGoalIndex] = useState(null);
+      const [clickedGoalColumnId, setClickedGoalColumnId] = useState(null);
+      const [createMode, setCreateMode] = useState(false);
+
       function FormColumnTitles() {
         return (
           <React.Fragment>
@@ -61,9 +89,59 @@ export default function Objective() {
           </React.Fragment>
         );
       }
-    
 
     
+      const [open, setOpen] = React.useState(false);
+      const handleClickOpen = () => {
+        setClickedGoalIndex(null);
+        setClickedGoalColumnId(null);
+        setCreateMode(true);
+          setOpen(true);
+        };
+      const handleClose = () => {
+          setOpen(false);
+      };
+
+      const handleCreate = () => {
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+        const startDate = document.getElementById('startDate').value;
+        const endDate = document.getElementById('endDate').value;
+
+          if(createMode==true){
+var newGoal={ id: goalIndex+"", name:title, description:description, startDate:setFormattedDate(startDate), endDate:setFormattedDate(endDate), additionalNotes:""};
+
+          var newList=columns["todo"].list;
+          newList.splice(0, 0, newGoal);
+    
+          const newCol = {
+            id: "todo",
+            list: newList
+          };
+          setGoalIndex(goalIndex+1);
+          setColumns((state) => ({ ...state, [newCol.id]: newCol }));
+            setCreateMode(false);
+          }
+          else{
+            const newList = columns[clickedGoalColumnId].list.filter((_, idx) => idx !== clickedGoalIndex);
+            newList.splice(clickedGoalIndex, 0, { id: columns[clickedGoalColumnId].list[clickedGoalIndex].id+"", name:title, description:description, startDate:setFormattedDate(startDate), endDate:setFormattedDate(endDate), additionalNotes:""});
+            const newCol = {
+                id: clickedGoalColumnId,
+                list: newList
+              };
+              setColumns((state) => ({ ...state, [newCol.id]: newCol }));
+          }
+          setOpen(false);
+
+    };
+
+    function readData() {
+        if(clickedGoalColumnId===null||clickedGoalIndex===null||columns[clickedGoalColumnId].list[clickedGoalIndex]===null){
+            return "";
+        }
+        return columns[clickedGoalColumnId].list[clickedGoalIndex];
+    };
+
     
     
     const onDragEnd = ({ source, destination }) => {
@@ -141,9 +219,46 @@ export default function Objective() {
 
     return (
         <Grid container spacing={1} style={FormColumnTitleStyle}>
-      <Button variant="contained" endIcon={<AddIcon />}>
+      <Button variant="contained" endIcon={<AddIcon />} onClick={handleClickOpen}>
         Create
       </Button>
+      
+      
+      <div>
+     <Dialog open={open} onClose={handleClose}>
+       <DialogTitle>Goal</DialogTitle>
+       <DialogContent>
+         <DialogContentText>
+            To make sure your goals are clear and reachable, each one should be specific, measurable, achievable, relevant, and time bound.
+         </DialogContentText>
+         <TextField
+           autoFocus
+           margin="dense"
+           id="title"
+           label="Title"
+           required
+           fullWidth
+           variant="standard"
+           defaultValue={(readData()==null?"":readData().name)}
+         />
+        <TextField
+            defaultValue={(readData()==null?"":readData().description)}
+          id="description"
+          label="Description"
+          multiline
+        />
+        <br/>
+        <TextField id="startDate" defaultValue={(readData()==null?"":getFormattedDate(readData().startDate))} style={{margin:5}} required name="startDate"label="Start Date" type="date" InputLabelProps={{ shrink: true, required: true }} />
+        <TextField id="endDate" defaultValue={(readData()==null?"":getFormattedDate(readData().endDate))} style={{margin:5}} required name="endDate" label="End Date" type="date" InputLabelProps={{ shrink: true, required: true }} />
+
+       </DialogContent>
+       <DialogActions>
+         <Button onClick={handleClose}>Cancel</Button>
+         <Button onClick={handleCreate}>Done</Button>
+       </DialogActions>
+     </Dialog>
+   </div>
+
       <Grid container spacing={3} style={FormColumnTitleStyle}>
         <FormColumnTitles />
       </Grid>
@@ -151,7 +266,7 @@ export default function Objective() {
         <Grid container direction={"row"} justify={"center"}>
           {Object.values(columns).map((column) => {
             console.log(column);
-            return <Column column={column} key={column.id} setColumns={setColumns}/>;
+            return <Column column={column} key={column.id} setColumns={setColumns} open={open} setOpen={setOpen} setClickedGoalIndex={setClickedGoalIndex} setClickedGoalColumnId={setClickedGoalColumnId}/>;
           })}
         </Grid>
       </DragDropContext>

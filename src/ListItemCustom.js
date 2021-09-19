@@ -9,7 +9,7 @@ import {
   Button,
   Typography,
   Grid,
-  IconButton,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle,RootRef
+  IconButton,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle
         
 } from "@material-ui/core";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -18,16 +18,6 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import { Draggable } from "react-beautiful-dnd";
 import {plusSlides} from './App';
-
-export function getCurrentDate(separator = '/') {
-
-    let newDate = new Date()
-    let date = newDate.getDate();
-    let month = newDate.getMonth() + 1;
-    let year = newDate.getFullYear();
-
-    return `${month < 10 ? `0${month}` : `${month}`}${separator}${date}${separator}${year}`
-}
 
 export function getProgressValue(startDateString,endDateString) {
 
@@ -62,7 +52,7 @@ return (100-value);
 
 
 
-const ListItemCustom = ({ itemObject, index, column,setColumns }) => {
+const ListItemCustom = ({ itemObject, index, column,setColumns, open, setOpen, setClickedGoalIndex, setClickedGoalColumnId }) => {
     const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
         height: 10,
         borderRadius: 5,
@@ -74,19 +64,9 @@ const ListItemCustom = ({ itemObject, index, column,setColumns }) => {
             backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
         },
     }));
-
-    const [value, setValue] = React.useState([null, null]);
-    const [open, setOpen] = React.useState(false);
-    const handleClickOpen = () => {
-        setOpen(true);
-      };
-    
-    const handleClose = () => {
-        setOpen(false);
-    };
     
   return (
-    <Draggable draggableId={itemObject.id} key={itemObject.id} index={index} column={column} setColumns={setColumns}>
+    <Draggable draggableId={itemObject.id} key={itemObject.id} index={index} column={column} setColumns={setColumns} setClickedGoalIndex={setClickedGoalIndex} setClickedGoalColumnId={setClickedGoalColumnId}>
       {(provided) => (
         <ListItem
           key={itemObject.id}
@@ -132,49 +112,16 @@ const ListItemCustom = ({ itemObject, index, column,setColumns }) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <IconButton aria-label="Edit"  onClick={handleClickOpen}>
+
+                <IconButton aria-label="Edit"  onClick={() => {
+                     setClickedGoalIndex(index);
+                     setClickedGoalColumnId(column.id);
+
+                           setOpen(true);
+  }}>
                   <EditIcon />
                 </IconButton>
-                <div>
-     
-     <Dialog open={open} onClose={handleClose}>
-       <DialogTitle>Goal</DialogTitle>
-       <DialogContent>
-         <DialogContentText>
-            To make sure your goals are clear and reachable, each one should be specific, measurable, achievable, relevant, and time bound.
-         </DialogContentText>
-         <TextField
-           autoFocus
-           margin="dense"
-           id="title"
-           label="Title"
-           required
-           fullWidth
-           variant="standard"
-         />
-                 <TextField
-          id="outlined-textarea"
-          label="Description"
-          multiline
-        />
-        <br/>
-
-        <Grid container justify="space-between">
-        <TextField label="Start Date" type="date"/>
-<TextField label="End Date" type="date"/>
-                </Grid>
-
-
-
-
-
-       </DialogContent>
-       <DialogActions>
-         <Button onClick={handleClose}>Cancel</Button>
-         <Button onClick={handleClose}>Create</Button>
-       </DialogActions>
-     </Dialog>
-   </div>
+                
                 <IconButton aria-label="Delete" 
                 onClick={() => {
                     if (!window.confirm("Are you want to delete this goal?")) {

@@ -13,7 +13,7 @@ import {
   IconButton
 } from "@material-ui/core";
 
-const Column = ({ column , setColumns}) => {
+const Column = ({ column , setColumns, open, setOpen, setClickedGoalIndex, setClickedGoalColumnId}) => {
   return (
     <Droppable droppableId={column.id}>
       {(provided) => (
@@ -26,7 +26,7 @@ const Column = ({ column , setColumns}) => {
             }}
           >
             {column.list.map((itemObject, index) => {
-              return <ListItemCustom index={index} itemObject={itemObject} column={column} setColumns={setColumns} />;
+              return <ListItemCustom index={index} itemObject={itemObject} column={column} setColumns={setColumns} open={open} setOpen={setOpen} setClickedGoalIndex={setClickedGoalIndex} setClickedGoalColumnId={setClickedGoalColumnId}/>;
             })}
             {provided.placeholder}
           </List>
