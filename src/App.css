@@ -294,3 +294,8 @@
     text-align: center;
     margin-top: 20px;
   }
+
+
+  .MuiListItem-secondaryAction {
+    padding-right: 16px !important;
+}
