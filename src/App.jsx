@@ -19,7 +19,7 @@ const App = () => {
             
             
             <Route exact path = "/" > <Splash/></Route>
-            <Route path = "/event"><Event/></Route>
+            <Route path = "/events"><Event/></Route>
             <Route path = "/activities"><Activities/></Route>
             <Route path = "/objective"><Objective/></Route>
             <Route path = "/profile"><Dashboard/></Route>
