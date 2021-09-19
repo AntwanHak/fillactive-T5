@@ -55,7 +55,7 @@ const EventTab = () => {
               >
                 {/*the title */}
                 <div style={{ paddingLeft: "20px" }}>
-                  <h2>Canada Marathon</h2>
+                  <h2>Canada Marathon1</h2>
                 </div>
 
                 {/*the image*/}

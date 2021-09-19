@@ -4,16 +4,15 @@ import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import Login from "./login";
 
 import { Route, Switch } from "react-router-dom";
-import ActivityTab from "./pages/activity";
+import ActivityTab from "./pages/AllActivity";
 import EventTab from "./pages/event";
 import ProfilePage from "./pages/profile";
 
-import MainNavigation from "./components/layout/MainNavigation";
+import Layout from "./components/layout/Layout";
 
 const App = () => {
   return (
-    <>
-      <MainNavigation />
+    <Layout>
       <Switch>
         <Route path="/" exact>
           <ProfilePage />
@@ -25,7 +24,7 @@ const App = () => {
           <ActivityTab />
         </Route>
       </Switch>
-    </>
+    </Layout>
   );
 };
 export default App;

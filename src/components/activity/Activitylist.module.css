@@ -1,0 +1,11 @@
+.list {
+  list-style: none;
+  display: inline-flex;
+  margin: 50px;
+  height: 100px;
+}
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  float: right;
+}
