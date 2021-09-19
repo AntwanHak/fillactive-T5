@@ -1,23 +1,26 @@
-import React, { useState } from "react";
-import Grid from "@material-ui/core/Grid";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import { DragDropContext } from "react-beautiful-dnd";
-import { Button, Typography } from "@material-ui/core";
-import Column from "./Column";
-import AddIcon from "@material-ui/icons/Add";
+import { ChatEngine } from 'react-chat-engine';
+
+import ChatFeed from './components/ChatFeed';
+import LoginForm from './components/LoginForm';
 import './App.css';
-import Objective from "./Objective";
 
 const projectID = 'bb1cb3f1-b0a9-4ec0-8e59-59cb02ac9f1b';
 
 const App = () => {
-  const classes = useStyles();
- 
+  if (!localStorage.getItem('username')) return <LoginForm />;
+
   return (
-    <Objective/>
+    <ChatEngine
+      height="100vh"
+      projectID={projectID}
+      userName={localStorage.getItem('username')}
+      userSecret={localStorage.getItem('password')}
+      renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+      onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
+    />
   );
 };
 
-export default App;
+// infinite scroll, logout, more customizations...
 
-const useStyles = makeStyles((theme) => ({}));
+export default App;

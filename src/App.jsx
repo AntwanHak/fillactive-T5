@@ -1,15 +1,38 @@
 import React from 'react';
-import {Typography, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container} from '@material-ui/core';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-import Login from './login';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import Event from './event';
+import Splash from './splash';
+import Activities from './activities';
+import Navbar from './navbar';
+import  Dashboard  from './Dashboard';
+import Objective from "./Objective";
 
 const App = () => {
     return (
-       <>
-        <CssBaseline>
-        <Login></Login>
-        </CssBaseline>
-       </>
+       
+        <Router>
+        <body >
+        
+            <Navbar />
+            
+            
+            
+            <Route exact path = "/" > <Splash/></Route>
+            <Route path = "/event"><Event/></Route>
+            <Route path = "/activities"><Activities/></Route>
+            <Route path = "/objective"><Objective/></Route>
+            <Route path = "/profile"><Dashboard/></Route>
+            
+             
+            
+        
+        </body>
+    </Router>
+        
+        
+
+       
     );
 }
 
