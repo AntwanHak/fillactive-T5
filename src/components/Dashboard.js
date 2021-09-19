@@ -7,17 +7,22 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { Avatar } from '@mui/material';
 import profileImage from './1.jpg'
 
+
 const AnyReactComponent = ({ text }) => <div className='marker'>{text}</div>;
+const user = {
+    firstName: "Julia",
+    lastName: "Yang",
+    school: "College De Montreal",
+    followers: "87",
+    following: "65",
+    badges: "12"
+}
 
 
 /*   map marker logic not yet implemented 
 
 
-let Event = {
-    "nameOfEvent" : "Bob's cycling",
-    "eventLat" : 45.5053,
-    "eventLng": -73.552
-}
+
 
 let Events = [
     {
@@ -48,7 +53,11 @@ function addMarker(){
 
 }
 
+
+addMarker(); 
+
 */
+
 
 class DashboardContainer extends Component {
     static defaultProps = {
@@ -59,44 +68,73 @@ class DashboardContainer extends Component {
         zoom: 11
     };
 
-
+    
+    
+    
 
     render() {
+
+        
         return (
 
 
             <>
+
 
                 <div className='page-container'>
 
 
 
                     <div className='user-info-container'>
+
                         <div className='avatar-container'>
                             <Avatar alt="Julia Yang"
                                 src={profileImage}
                                 sx={{ width: 150, height: 150 }}
                             />
-
-                            
                         </div>
-                        <a>Julia Yang</a>
+
+                        <a id='fullName'>{user.firstName} {user.lastName}</a>
+                        <a id='schoolName'>&#127979; {user.school}</a>
+
+                        
+
+                        <div className='user-stats-container'>
+
+                            <div className='followers-container'>
+                                <a>{user.followers}</a>
+                                <a className='user-stats-titles'>Followers</a>
+                            </div>
+
+                            <div className='following-container'>
+                                <a>{user.following}</a>
+                                <a className='user-stats-titles'>Following</a>
+                            </div>
+
+                            <div className='badges-container'>
+                                <a>{user.badges}</a>
+                                <a className='user-stats-titles'>Badges</a>
+                            </div>
+                        </div>
 
 
 
                     </div>
-                    <h2>Upcoming Events</h2>
+                    <h2>Your Upcoming Events</h2>
                     <div className='calendar-container'>
 
                         <FullCalendar
                             plugins={[dayGridPlugin]}
                             initialView="dayGridMonth"
-                            themeSystem="standard"
+                            rerenderDelay="10"
+
                             events={[
                                 { title: '5K run', date: '2021-08-29' },
-                                { title: 'Morning yoga', date: '2021-09-23' },
-                                { title: 'evening walk', start: '2021-09-10', end: '2021-09-12' },
-                                { title: '5K weekend group run', date: '2021-09-19' }
+                                { title: 'Morning pilates', date: '2021-09-23' },
+                                { title: 'Weekend group yoga', start: '2021-09-10', end: '2021-09-12' },
+                                { title: 'rock climbing seminar', start: '2021-09-01', end: '2021-09-03', eventBackgroundColor: '#378006' },
+                                { title: '5K weekend group run', date: '2021-09-19' },
+                                { title: '5K weekend group run', start: '2021-10-05', end: '2021-10-07', color: 'green' }
                             ]}
                         />
 
