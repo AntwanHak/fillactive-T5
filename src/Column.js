@@ -3,15 +3,6 @@ import { Droppable } from "react-beautiful-dnd";
 import RootRef from "@material-ui/core/RootRef";
 import List from "@material-ui/core/List";
 import ListItemCustom from "./ListItemCustom";
-import Typography from "@material-ui/core/Typography";
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Button,
-  Grid,
-  IconButton
-} from "@material-ui/core";
 
 const Column = ({ column , setColumns, open, setOpen, setClickedGoalIndex, setClickedGoalColumnId}) => {
   return (

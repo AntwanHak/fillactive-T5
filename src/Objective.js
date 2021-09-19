@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import Grid from "@material-ui/core/Grid";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import { DragDropContext } from "react-beautiful-dnd";
-import { Button, Typography,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@material-ui/core";
+import { Button, Typography,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle,Grid } from "@material-ui/core";
 import Column from "./Column";
 import AddIcon from "@material-ui/icons/Add";
 import './App.css';
 
-
-   export function getFormattedDate(sDate) {
+const Objectives=()=>{
+   function getFormattedDate(sDate) {
     var separator = '-';
     let newDate = new Date(sDate);
     let date = newDate.getDate();
@@ -18,7 +16,7 @@ import './App.css';
     return `${year}${separator}${month < 10 ? `0${month}` : `${month}`}${separator}${date < 10 ? `0${date}` : `${date}`}`
 }
 
-export function setFormattedDate(sDate) {
+function setFormattedDate(sDate) {
     var separator = '/';
     let newDate;
     console.log(sDate);
@@ -38,7 +36,7 @@ export function setFormattedDate(sDate) {
 }
 
 
-export default function Objective() {
+
     document.body.style = 'background: #9ca4dc;';
 
     const initialColumns = {
@@ -274,4 +272,4 @@ var newGoal={ id: goalIndex+"", name:title, description:description, startDate:s
     );
 }
 
-  
+export default Objectives;

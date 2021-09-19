@@ -1,23 +1,19 @@
 import React from "react";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import {
   Card,
   CardActions,
   CardContent,
-  Button,
   Typography,
   Grid,
-  IconButton,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle
-        
+  IconButton,
+  ListItemSecondaryAction,
+  ListItem,
+  LinearProgress
 } from "@material-ui/core";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import { styled } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import { Draggable } from "react-beautiful-dnd";
-import {plusSlides} from './App';
 
 export function getProgressValue(startDateString,endDateString) {
 
