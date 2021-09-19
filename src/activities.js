@@ -1,4 +1,6 @@
 import React from 'react'
+
+
 //import {Grid} from '@material-ui/core';
 
 const Activities=()=>{
@@ -89,10 +91,12 @@ const Results = () => (
                             sherbrooke. Please, message if you are interested.
                         </p>
                         <div className="button-name" style={{display: 'flex', justifyContent: 'center'}}>
-                            <button style={{
+                            <button 
+                            
+                            style={{
                             border: 'none',height: '35px', 
                             width: '190px', color: 'white',
-                            backgroundColor: '#ed5628'}}>Chat
+                            backgroundColor: '#ed5628'}}><a href="https://fillactive-chat-app.netlify.app/" style={{color: 'white', textDecoration: 'none'}}>Chat </a>
                             </button>
                         </div>
                     </div>
