@@ -37,7 +37,7 @@ function setFormattedDate(sDate) {
 
 
 
-    document.body.style = 'background: #9ca4dc;';
+    document.body.style = 'background: #ebedf0;';
 
     const initialColumns = {
         todo: {
@@ -213,7 +213,7 @@ var newGoal={ id: goalIndex+"", name:title, description:description, startDate:s
 
 
 
-    const FormColumnTitleStyle = { backgroundColor: "#9ca4dc", padding: 20 };
+    const FormColumnTitleStyle = { backgroundColor: "#ebedf0", padding: 20 };
 
     return (
         <Grid container spacing={1} style={FormColumnTitleStyle}>
