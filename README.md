@@ -1,4 +1,6 @@
-Sign in done and integrated with chat home page. No Sign up feature added yet. The chat app is a very heavy module. takes time to load. 
+Sign In Page DONE.(Just the template)
+
+index.html has the MATERIAL-UI CSS REFERENCE LINK. Find the App.jsx file and start adding paths/links from the homepage. We meet at 9 pm and decide the exact flow. Rest, I am starting with the Sign-in page.  Ignore the node_modules folder. Instead, install react and all the relevant libraries for material-ui and you'll find them. I cannot upload as it is huge in size with a lot of files. 
 
 # Getting Started with Create React App
 
