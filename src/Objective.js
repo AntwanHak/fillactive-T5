@@ -43,15 +43,15 @@ function setFormattedDate(sDate) {
         todo: {
           id: "todo",
           list: [
-            { id: "1", name:"Running", description:"Run for 12 mins", startDate:"09/19/2021", endDate:"09/23/2021", additionalNotes:""},
-            { id: "2",name:"Yoga", description:"yoga blah", startDate:"09/16/2020", endDate:"09/31/2021", additionalNotes:"" },
+            { id: "1", name:"pilates", description:"Pilates is a physical fitness system developed in the early 20th century by Joseph Pilates", startDate:"09/19/2021", endDate:"09/23/2021", additionalNotes:""},
+            { id: "2",name:"Yoga", description:"yoga", startDate:"09/16/2020", endDate:"09/31/2021", additionalNotes:"" },
           ]
         },
         doing: {
           id: "doing",
           list: [
             { id: "3",name:"Swimming", description:"Hold breath for 1 min", startDate:"09/14/2021", endDate:"09/15/2021", additionalNotes:"" },
-            { id: "4",name:"Blah", description:"Blah Blah Blah", startDate:"09/16/2021", endDate:"12/22/2021", additionalNotes:"" }
+            { id: "4",name:"5k run", description:"5k run with minimal slopes", startDate:"09/16/2021", endDate:"12/22/2021", additionalNotes:"" }
           ]
         },
         done: {
