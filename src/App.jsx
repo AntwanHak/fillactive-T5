@@ -6,7 +6,6 @@ import Splash from './splash';
 import Activities from './activities';
 import Navbar from './navbar';
 import  Dashboard  from './Dashboard';
-import Objective from "./Objective";
 
 const App = () => {
     return (
@@ -21,7 +20,6 @@ const App = () => {
             <Route exact path = "/" > <Splash/></Route>
             <Route path = "/events"><Event/></Route>
             <Route path = "/activities"><Activities/></Route>
-            <Route path = "/objective"><Objective/></Route>
             <Route path = "/profile"><Dashboard/></Route>
             
              
