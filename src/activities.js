@@ -82,7 +82,7 @@ const Results = () => (
                             justifyContent: 'space-between'}}>
                     
                     <div style={{paddingLeft: '20px'}}>
-                        <h1>Tenis</h1>
+                        <h1>Tennis</h1>
                         <h3>Name: Amelia</h3>
                         <h3>Location: Sherbrooke</h3>
                         <h3>Equipment: Have two Racquets</h3>
