@@ -6,6 +6,7 @@ import Splash from './splash';
 import Activities from './activities';
 import Navbar from './navbar';
 import  Dashboard  from './Dashboard';
+import  Objectives from './Objective';
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
             <Route path = "/events"><Event/></Route>
             <Route path = "/activities"><Activities/></Route>
             <Route path = "/profile"><Dashboard/></Route>
+            <Route path = "/objective"><Objectives/></Route>
             
              
             
