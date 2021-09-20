@@ -10,13 +10,15 @@ const Event=()=>{
             <h1  style={{marginLeft: '70px', paddingTop: '25px'}}>Trending Events</h1>
             <div className="trending-events"  style={{marginLeft: '70px',
                 boxShadow: '0px 0px 12px 5px rgba(0,0,0,0.25)',
-             height: '50vh', width: '185vh',
+             height: '90vh', width: '185vh',
               backgroundColor: 'white',
               display: 'flex',
               justifyContent: 'space-between'
               }}>
                 <div style={{paddingLeft: '20px'}}>
-                    <h1>Marathon Beneva de Montreal</h1>
+                    <h1 >Marathon Beneva de Montreal</h1>
+                    <h3 style={{color: '#dbd7d7'}}>Time: 8 Pm</h3>
+                    <h3 style={{color: '#dbd7d7'}}>location: Montreal</h3>
                     <p >The Marathon Beneva de Montréal will feature race distances for runners of all performance levels, from families to seasoned athletes: 42.2 km, 21.1 km, 10 km, 5 km and 1 km.<br></br>
                     The Marathon Beneva de Montréal's 30th edition will be held from September 24 to 26, 2021. The promoter of the Grands Prix Cyclistes de Québec et de Montréal and founder of the Montréal Marathon in 1979, Événements GPCQM is resuming management of the event with a brand new title partner, Beneva, born from the coming together of La Capitale and SSQ Insurance.
                     </p>
@@ -41,7 +43,7 @@ const Event=()=>{
                 <div className= "card-container" style={{marginLeft: '70px', boxShadow: '0px 0px 12px 5px rgba(0,0,0,0.25)'}}>
                     {/* image and title*/}
                     <div className="mini-event"  style={{
-                    height: '50vh', width: '90vh',
+                    height: '110vh', width: '90vh',
                     backgroundColor: 'white'
                     }}>
                         <div className="card-container" style={{display: 'flex',
@@ -49,6 +51,8 @@ const Event=()=>{
                             {/*the title */}
                             <div style={{paddingLeft: '20px'}}>
                                 <h2>Halloween: Run From Michael Myers</h2>
+                                <h4 style={{color: '#dbd7d7'}}>Time: 8 Pm</h4>
+                                <h4 style={{color: '#dbd7d7'}}>location: Montreal</h4>
                             </div>
 
                             {/*the image*/}
@@ -82,7 +86,7 @@ const Event=()=>{
                 boxShadow: '0px 0px 12px 5px rgba(0,0,0,0.25)'}}>
                     {/* image and title*/}
                     <div className="mini-event"  style={{
-                    height: '50vh', width: '90vh',
+                    height: '110vh', width: '90vh',
                     backgroundColor: 'white'
                     }}>
                         <div className="card-container" style={{display: 'flex',
@@ -90,6 +94,8 @@ const Event=()=>{
                             {/*the title */}
                             <div style={{paddingLeft: '20px'}}>
                                 <h2>Santa Shuffle</h2>
+                                <h4 style={{color: '#dbd7d7'}}>Time: 8 Pm</h4>
+                                <h4 style={{color: '#dbd7d7'}}>location: Montreal</h4>
                             </div>
 
                             {/*the image*/}
