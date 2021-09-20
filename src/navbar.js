@@ -21,10 +21,12 @@ const Navbar = () => {
             <li className="navbar-item">
               <Link to="/events" className="nav-link">Events</Link>
               </li>
-              
-              
               <li className="navbar-item">
               <Link to="/activities" className="nav-link">Activities</Link>
+              </li>
+              
+              <li className="navbar-item">
+              <Link to="/objective" className="nav-link">Objective</Link>
               </li>
               <li className="navbar-item">
               <Link to="/profile" className="nav-link">Profile</Link>
