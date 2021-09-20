@@ -113,6 +113,7 @@ const Event=()=>{
                          width: '190px', color: 'white',
                          backgroundColor: '#ed5628',}}>Register
                          </button>
+                         
                     </div>
                 </div>
 

@@ -220,6 +220,7 @@ var newGoal={ id: goalIndex+"", name:title, description:description, startDate:s
       <Button variant="contained" endIcon={<AddIcon />} onClick={handleClickOpen}>
         Create
       </Button>
+   
       
       
       <div>

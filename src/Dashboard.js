@@ -119,42 +119,48 @@ class DashboardContainer extends Component {
                             <Marker
                                 lat={45.4705}
                                 lng={-73.59107}
-                                name="5K run"
+                                name="5K run
+                                Activity"
                                 color="blue"
                             />
 
                             <Marker
                                 lat={45.5165}
                                 lng={-73.60965127}
-                                name="Morning Pilates"
+                                name="Morning Pilates
+                                Activity"
                                 color="blue"
                             />
 
                             <Marker
                                 lat={45.5233425}
                                 lng={-73.56785}
-                                name="Weekend group yoga"
+                                name="Weekend group yoga
+                                Activity"
                                 color="blue"
                             />
 
                             <Marker
                                 lat={45.51389}
                                 lng={-73.534333}
-                                name="rock climbing seminar"
+                                name="rock climbing seminar
+                                Event"
                                 color="green"
                             />
 
                             <Marker
                                 lat={45.55973}
                                 lng={-73.5616151}
-                                name="5K weekend group run"
-                                color="blue"
+                                name="5K weekend group run
+                                Activity"
+                                color="blue
+                                "
                             />
                             <Marker
                                 lat={45.499446}
                                 lng={-73.5945828}
                                 name="5K weekend group run
-                                "
+                                Event"
                                 color="green"
                             />
 

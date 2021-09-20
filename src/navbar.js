@@ -11,13 +11,14 @@ const Navbar = () => {
         <nav className="navbar fixed-top navbar-dark bg-dark navbar-expand-lg"  style= {{boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}>
           
           
-          <Link to="/" className="navbar-brand" style={{paddingLeft: '10px'}}>FitSpirit</Link>
+          <Link to="/" className="navbar-brand" style={{paddingLeft: '10px'}}>Lively</Link>
           
           <div className="collpase navbar-collapse" style={{display: 'flex', justifyContent: 'flex-end', paddingRight: '20px'}}>
             <ul className="navbar-nav mr-auto">
             <li className="navbar-item">
-              <Link to="/" className="nav-link">Home</Link>
+              <Link to="/profile" className="nav-link">Home</Link>
               </li>
+            
             <li className="navbar-item">
               <Link to="/events" className="nav-link">Events</Link>
               </li>
@@ -26,11 +27,9 @@ const Navbar = () => {
               <li className="navbar-item">
               <Link to="/activities" className="nav-link">Activities</Link>
               </li>
+
               <li className="navbar-item">
-              <Link to="/profile" className="nav-link">Profile</Link>
-              </li>
-              <li className="navbar-item">
-              <Link to="/objective" className="nav-link">Objective</Link>
+              <Link to="/objective" className="nav-link">Objectives</Link>
               </li>
             </ul>
           </div>
